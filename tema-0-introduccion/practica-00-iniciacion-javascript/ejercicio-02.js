@@ -1,7 +1,7 @@
 const nombre = "Bulbasaur";
 const nivel = 10;
 const experienciaActual = 30;
-const experienciaGanada = 20;
+const experienciaGanada = 10;
 
 const experienciaTotal = experienciaActual + experienciaGanada;
 
