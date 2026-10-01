@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Pokedex</title>
+        <link rel="icon" href="./assets/images/pokeball.png" type="image/png" />
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <div class="header">
+            <img src="./assets/images/logo.png" class="logo" />
+        </div>
+        <div class="body">
+            <button id="button" class="button">Let's go!</button>
+            <form hidden id="formulario-busqueda" class="buscador">
+                <label for="busqueda">Nombre o número</label>
+                <div class="buscador__controles">
+                    <input
+                        id="busqueda"
+                        name="busqueda"
+                        type="text"
+                        placeholder="Ejemplo: pikachu o 25"
+                        autocomplete="off"
+                    />
+                    <button type="submit">Buscar</button>
+                </div>
+            </form>
+        </div>
+        <div id="pokedex" hidden></div>
+        <script type="module" src="./js/app.js"></script>
+    </body>
+</html>
