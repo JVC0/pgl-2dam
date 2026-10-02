@@ -6,18 +6,26 @@ var pokemons = [];
 
 // Seleccionamos el elemento button del DOM usando querySelector
 const button = document.querySelector("button");
+const loadingBar = document.getElementById("loadingBar");
+const progressText = document.getElementById("progressText");
+const pokedex = document.getElementById("pokedex");
 // Agregamos un event listener al botón para que se mantenga a la espera de hacer click en él
 // Cuando se recibe el click, se ejecuta la función flecha
 button.addEventListener("click", async () => {
   // Al hacer click sobre el botón, cambiamos su visibilidad y lo ocultamos
-  document.querySelector("#button").style.visibility = "hidden";
+  button.style.visibility = "hidden";
+  loadingBar.removeAttribute("hidden");
+  progressText.removeAttribute("hidden");
 
   // LLamada a la función startPokedex() que comenzará el proceso de mostrar los Pokemon
   await startPokedex();
-  // También cambiamos la visibilidad del elemento #pokedex, y lo mostramos en pantalla
-  document.querySelector("#pokedex").style.visibility = "visible";
+  pokedex.removeAttribute("hidden");
 });
+function loadingBarStatus(current, max) {
+    loadingBar.value= current;
 
+    progressText.textContent = `Loading ${current} of ${max}`;
+}
 // Función asíncrona que va a realizar operaciones con promesas para realizar la llamada a la API
 const startPokedex = async () => {
   // Bucle for que itera desde 1 hasta 151, que son los primeros 151 Pokemon
@@ -36,6 +44,7 @@ const startPokedex = async () => {
         // almacenamos los resultados en el array
         // console.log(pokemon);
       });
+      loadingBarStatus(pokemons.length ,151);
   }
   // Una vez que todos los Pokemon se han añadido al array, llamamos a la función showPokedex
   await showPokedex();
@@ -48,8 +57,7 @@ function pushPokemon(pokemon) {
 
 // Esta función se encarga de mostrar en el DOM los Pokemon que se han obtenido y almacenado en el array
 const showPokedex = async () => {
-  // Se obtiene una referencia al elemento con el ID pokedex en el DOM donde se insertarán las tarjetas de los Pokemon.
-  const pokedex = document.getElementById("pokedex");
+
   // Iteramos sobre cada elemento del array pokemons
   for (var i = 0; i < pokemons.length; i++) {
     var aux = 0;

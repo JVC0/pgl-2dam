@@ -12,6 +12,8 @@
         </div>
         <div class="body">
             <button id="button" class="button">Let's go!</button>
+            <div hidden id="progressText"></div>
+            <progress hidden id="loadingBar" max="151" value="0"></progress>
             <form hidden id="formulario-busqueda" class="buscador">
                 <label for="busqueda">Nombre o número</label>
                 <div class="buscador__controles">
@@ -26,7 +28,7 @@
                 </div>
             </form>
         </div>
-        <div id="pokedex" hidden></div>
+        <div id="pokedex"></div>
         <script type="module" src="./js/app.js"></script>
     </body>
 </html>
