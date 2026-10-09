@@ -9,6 +9,7 @@ const barradebuscar = document.querySelector(".buscadord");
 const modal = document.querySelector(".modal");
 const barra = document.querySelector(".loadingbar");
 const loading = document.querySelector(".loading");
+const numero = document.querySelector(".numero");
 let pokemons = [];
 
 const obtenerPokemon = (busqueda) => {
@@ -23,15 +24,16 @@ const obtenerPokemon = (busqueda) => {
               );
 
     const exacto = lista.find((pokemon) => pokemon.name === texto);
-    if (exacto) return [exacto];
+    if (exacto)return [exacto];
 
     const id = Number(texto);
     if (texto !== "" && Number.isInteger(id)) {
         const porId = lista.find((pokemon) => pokemon.id === id);
-        if (porId) return [porId];
+        if (porId)return[porId];
+            
     }
-
-    return lista.filter((p) => p.name.startsWith(texto));
+    const empizapor =lista.filter((p) => p.name.startsWith(texto))
+    return empizapor;
 };
 
 const startPokedex = async () => {
@@ -44,6 +46,7 @@ const startPokedex = async () => {
         barra.value = i;
     }
     await new Promise((resolve) => setTimeout(resolve, 400));
+    numero.innerHTML = `<div>${pokemons.length}</div>`
     loading.style.display = "none";
     showPokedex();
 };
@@ -58,15 +61,21 @@ formulario.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
     const encontrados = obtenerPokemon(inputBusqueda.value);
-
-    if (encontrados.length === 0) {
+    numero.innerHTML = `<div>${encontrados.length}</div>`
+    if (encontrados.length == 0) {
         mensaje.textContent = "No se encontró ningún Pokémon.";
         pokedex.innerHTML = "";
         return;
     }
-
+    
     mensaje.textContent = "";
-    pokedex.innerHTML = encontrados.map(crearTarjeta).join("");
+    try {
+        pokedex.innerHTML = encontrados.map(crearTarjeta).join("");
+    } catch (error) {
+         mensaje.textContent = "No se encontró ningún Pokémon.";
+        pokedex.innerHTML = "";
+    }
+    
 });
 
 const showPokedex = () => {

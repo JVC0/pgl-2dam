@@ -204,3 +204,54 @@ El panel de ver detalle se genera cuando se da click a boton que llama a una fun
 <img src="./img/image10.png" alt="Panel cerrado" width="600">
 
 <img src="./img/image11.png" alt="Estado de carga" width="600">
+
+
+
+## Modificaciones finales
+
+### Mostrar el numero de pokemons ensenados
+
+Se a anadido un html con las clase numero que ha sido cambiado basado en el numeros de pokemons que se an cargado.
+```html
+<div class="numero"></div>
+```
+
+```js
+const numero = document.querySelector(".numero");
+const obtenerPokemon = (busqueda) => {
+    const texto = String(busqueda).trim().toLowerCase();
+    const tipo = document.querySelector('input[name="option"]:checked').value;
+
+    const lista =
+        tipo === "all"
+            ? pokemons
+            : pokemons.filter(
+                  (p) => p.pkm_tipo1 === tipo || p.pkm_tipo2 === tipo,
+              );
+
+    const exacto = lista.find((pokemon) => pokemon.name === texto);
+    if (exacto){
+        numero.innerHTML = `<div>${exacto.length}</div>`
+        return exacto
+    };
+
+    const id = Number(texto);
+    if (texto !== "" && Number.isInteger(id)) {
+        const porId = lista.find((pokemon) => pokemon.id === id);
+        numero.innerHTML = `<div>${porId.length}</div>`
+        if (porId)return[porId];
+            
+    }
+    const empizapor =lista.filter((p) => p.name.startsWith(texto))
+    numero.innerHTML = `<div>${empizapor.length}</div>`
+    return empizapor;
+    };
+```
+
+### Capturas
+
+<img src="./img/Captura de pantalla de 2026-10-09 20-29-18.png" alt="Panel abierto" width="600">
+
+<img src="./img/Captura de pantalla de 2026-10-09 20-31-11.png" alt="Panel cerrado" width="600">
+
+<img src="./img/Captura de pantalla de 2026-10-09 20-31-22.png" alt="Estado de carga" width="600">
