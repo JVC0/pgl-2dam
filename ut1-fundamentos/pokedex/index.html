@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Pokédex</h1>
+        <div class="buscadord">
+
+            <form id="formulario-busqueda" class="buscador">
+                <div class="buscador__controles">
+                    <input id="busqueda" type="text" placeholder="Ejemplo: pikachu o 25" autocomplete="off">
+                    <button type="submit">Buscar</button>
+                </div>
+                <div class="select">
+                    <div class="selected" data-default="All" data-normal="Normal" data-fire="Fire" data-water="Water"
+                        data-grass="Grass" data-electric="Electric" data-ice="Ice" data-fighting="Fighting"
+                        data-poison="Poison" data-ground="Ground" data-flying="Flying" data-psychic="Psychic"
+                        data-bug="Bug" data-rock="Rock" data-ghost="Ghost" data-dragon="Dragon" data-dark="Dark"
+                        data-steel="Steel" data-fairy="Fairy">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow">
+                            <path
+                                d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="options">
+                        <div title="all">
+                            <input id="all" name="option" type="radio" value="all" checked />
+                            <label class="option" for="all" data-txt="All"></label>
+                        </div>
+                        <div title="normal">
+                            <input id="normal" name="option" type="radio" value="normal" />
+                            <label class="option" for="normal" data-txt="Normal"></label>
+                        </div>
+                        <div title="fire">
+                            <input id="fire" name="option" type="radio" value="fire" />
+                            <label class="option" for="fire" data-txt="Fire"></label>
+                        </div>
+                        <div title="water">
+                            <input id="water" name="option" type="radio" value="water" />
+                            <label class="option" for="water" data-txt="Water"></label>
+                        </div>
+                        <div title="grass">
+                            <input id="grass" name="option" type="radio" value="grass" />
+                            <label class="option" for="grass" data-txt="Grass"></label>
+                        </div>
+                        <div title="electric">
+                            <input id="electric" name="option" type="radio" value="electric" />
+                            <label class="option" for="electric" data-txt="Electric"></label>
+                        </div>
+                        <div title="ice">
+                            <input id="ice" name="option" type="radio" value="ice" />
+                            <label class="option" for="ice" data-txt="Ice"></label>
+                        </div>
+                        <div title="fighting">
+                            <input id="fighting" name="option" type="radio" value="fighting" />
+                            <label class="option" for="fighting" data-txt="Fighting"></label>
+                        </div>
+                        <div title="poison">
+                            <input id="poison" name="option" type="radio" value="poison" />
+                            <label class="option" for="poison" data-txt="Poison"></label>
+                        </div>
+                        <div title="ground">
+                            <input id="ground" name="option" type="radio" value="ground" />
+                            <label class="option" for="ground" data-txt="Ground"></label>
+                        </div>
+                        <div title="flying">
+                            <input id="flying" name="option" type="radio" value="flying" />
+                            <label class="option" for="flying" data-txt="Flying"></label>
+                        </div>
+                        <div title="psychic">
+                            <input id="psychic" name="option" type="radio" value="psychic" />
+                            <label class="option" for="psychic" data-txt="Psychic"></label>
+                        </div>
+                        <div title="bug">
+                            <input id="bug" name="option" type="radio" value="bug" />
+                            <label class="option" for="bug" data-txt="Bug"></label>
+                        </div>
+                        <div title="rock">
+                            <input id="rock" name="option" type="radio" value="rock" />
+                            <label class="option" for="rock" data-txt="Rock"></label>
+                        </div>
+                        <div title="ghost">
+                            <input id="ghost" name="option" type="radio" value="ghost" />
+                            <label class="option" for="ghost" data-txt="Ghost"></label>
+                        </div>
+                        <div title="dragon">
+                            <input id="dragon" name="option" type="radio" value="dragon" />
+                            <label class="option" for="dragon" data-txt="Dragon"></label>
+                        </div>
+                        <div title="dark">
+                            <input id="dark" name="option" type="radio" value="dark" />
+                            <label class="option" for="dark" data-txt="Dark"></label>
+                        </div>
+                        <div title="steel">
+                            <input id="steel" name="option" type="radio" value="steel" />
+                            <label class="option" for="steel" data-txt="Steel"></label>
+                        </div>
+                        <div title="fairy">
+                            <input id="fairy" name="option" type="radio" value="fairy" />
+                            <label class="option" for="fairy" data-txt="Fairy"></label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <p id="mensaje" class="mensaje" aria-live="polite"></p>
+        <div id="pokedex" class="pokedex"></div>
+        <div id="modal" class="modal"></div>
+        <button id="start" class="start">Let's go!</button>
+        <div class="loading">
+            <p class="loadingtext">Cargando Pokémon...</p>
+            <progress class="loadingbar" max="151"></progress>
+        </div>
+    </main>
+
+    <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>
