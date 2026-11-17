@@ -1,29 +1,34 @@
 import Caja from "@/components/Caja";
-import { useState } from "react";
 
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function CajaScreen() {
-    const [valorFlex, setValorFlex] = useState(0);
-    
     return (
-        <View style={styles.caja}>
-            <Text>Contenedor Principal</Text>
-            <Caja nombre={""} bg="brown" />
-            <Caja nombre={""} bg="blue" />
-            <Caja nombre={""} bg="green" />
-            <Button title="Incrementar" onPress={() => setValorFlex((n) => n + 1)}/>
-            <Button title="Incrementar" onPress={() => setValorFlex((n) => n - 1)}/>
+        <View style={styles.container}>
+            <Text style={styles.titulo}>Contenedor Principal</Text>
+            <View style={styles.filaCajas}>
+                <Caja nombre={""} bg="brown" />
+                <Caja nombre={""} bg="blue" />
+                <Caja nombre="Caja B" style={{ borderRadius: 20, borderWidth: 7 }} />
+            </View>
         </View>
     );
 }
 const styles = StyleSheet.create({
-    caja: {
-        height: 100,
-        width: 100,
+    container: {
+        flex: 1,
         justifyContent: "center",
-        alignItems: "center", 
-        gap:3,
+        alignItems: "center",
+        padding: 10,
     },
-    
+    titulo: {
+        marginBottom: 15,
+        fontSize: 18,
+        fontWeight: "bold",
+    },
+    filaCajas: {
+        flexDirection: "row", 
+        width: "100%",       
+        gap: 6,
+    },
 });
