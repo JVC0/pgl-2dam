@@ -68,3 +68,6 @@ const styles = StyleSheet.create({
 ## Práctica 8. Círculos dinámicos
 **Captura 1:** varios círculos de colores en modo `row` + `wrap`.
 **Captura 2:** los mismos círculos en modo `column` y/o `nowrap`.
+<img src="image-8.png" alt="Práctica 8a" style="max-width:300px;">
+<img src="image-9.png" alt="Práctica 8b" style="max-width:300px;">
+
